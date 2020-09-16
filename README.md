@@ -2,9 +2,9 @@
 
 ### Architecture Diagram
 #### Migration
-    ![](images/Readme/MigrationArchitecture.png)
+    ![](/images/Readme/MigrationArchitecture.png)
 #### Data Warehouse
-    ![](images/Readme/DWHArchitecture.png)
+    ![](/images/Readme/DWHArchitecture.png)
 
 ### Agenda
 * Migrate MySQL Database on EC2 Database to AWS RDS (Relational Database Service)
