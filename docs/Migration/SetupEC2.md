@@ -1,13 +1,13 @@
 ## Setup Your Database Server
 
 1. Go to [AWS Console](https://ap-southeast-1.console.aws.amazon.com/console/home?region=ap-southeast-1)
-2. Type <mark>EC2</mark> and click the ==EC2== menu
+2. Type `EC2` and click the EC2 menu
     ![](../../images/Migration/SetupEC2/2.png)
-3. Click "Instances" at the left menu
+3. Click `Instances` at the left menu
     ![](../../images/Migration/SetupEC2/3.png)
-4. Click "Launch instances"
+4. Click `Launch instances`
     ![](../../images/Migration/SetupEC2/4.png)
-5. Find "Ubuntu Server 16.04 LTS (HVM)" and click "Select"
+5. Find `Ubuntu Server 16.04 LTS (HVM)` and click `Select`
     ![](../../images/Migration/SetupEC2/5.png)
 6. Click "Next: Configure Instance Details"
 7. In Instance Details page, in Network, choose your previously created VPC (DatabaseVPC)
