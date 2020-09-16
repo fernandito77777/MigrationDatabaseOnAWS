@@ -2,14 +2,14 @@
 
 ### Architecture Diagram
 #### Migration
-    ![](./images/MigrationArchitecture.png)
+    ![](images/Readme/MigrationArchitecture.png)
 #### Data Warehouse
-    ![](./images/DWHArchitecture.png)
+    ![](images/Readme/DWHArchitecture.png)
 
 ### Agenda
 * Migrate MySQL Database on EC2 Database to AWS RDS (Relational Database Service)
-    * 1 - [Setup Your EC2 Database](docs/Migration/SetupEC2.md)
-    * 2 - [Setup Networking on AWS](docs/Migration/SetupNetworking.md)
+    * 1 - [Setup Networking on AWS](docs/Migration/SetupNetworking.md)
+    * 2 - [Setup Your Database Server](docs/Migration/SetupEC2.md)
     * 3 - [Create RDS Database](docs/Migration/CreateRDS.md)
     * 4 - [Migrate the Database](docs/Migration/MigrateDB.md)
 * Visualize RDS data through QuickSight
@@ -21,3 +21,4 @@
 ### Scope of Project
 * Database will be using MySQL Community version (8.0.20)
 * Migration will be done from EC2 MySQL to RDS MySQL
+* All Service will be on region ap-southeast-1 (Singapore)
