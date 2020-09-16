@@ -1,7 +1,7 @@
 ## Setup Your Database Server
 
 1. Go to [AWS Console](https://ap-southeast-1.console.aws.amazon.com/console/home?region=ap-southeast-1)
-2. Type "EC2" and click the "EC2" menu
+2. Type <span style="background-color: #FA3322">EC2</span> and click the "EC2" menu
     ![](../../images/Migration/SetupEC2/2.png)
 3. Click "Instances" at the left menu
     ![](../../images/Migration/SetupEC2/3.png)
@@ -105,7 +105,7 @@ You will see "classicmodels" database, which is the dummy database we got from e
     ![](../../images/Migration/SetupEC2/61.png)
 
 We need to create an user to remotely access the database. This user will be used to migrate the database.
-62. type "CREATE USER 'testuser'@'%' identified by '<your password here>';"
+62. type "CREATE USER 'testuser'@'%' identified by 'your password here';"
 63. type "GRANT ALL ON classicmodels.* to 'testuser';"
 Once you have done, we need to open the MySQL to be accessible outside. First, we need to stop the SQL first, configure it, then turn it on again.
 
@@ -133,7 +133,7 @@ We need to try to access the MySQL remotely.
 73. go to your [EC2 console here](https://ap-southeast-1.console.aws.amazon.com/ec2/v2/home?region=ap-southeast-1#Instances:)
 74. find your instance (EC2MySQL) and copy the Public IPv4 DNS
     ![](../../images/Migration/SetupEC2/74.png)
-75. in your regular terminal, type "mysql -h <yout public IPv4 DNS> -P 3306 -u testuser -p"
+75. in your regular terminal, type "mysql -h 'your public IPv4 DNS' -P 3306 -u testuser -p"
 76. Type your password
     ![](../../images/Migration/SetupEC2/76.png)
 
