@@ -1,7 +1,7 @@
 ## Setup Your Database Server
 
 1. Go to [AWS Console](https://ap-southeast-1.console.aws.amazon.com/console/home?region=ap-southeast-1)
-2. Type <span style="background-color: #FA3322">EC2</span> and click the "EC2" menu
+2. Type <mark>EC2</mark> and click the ==EC2== menu
     ![](../../images/Migration/SetupEC2/2.png)
 3. Click "Instances" at the left menu
     ![](../../images/Migration/SetupEC2/3.png)
