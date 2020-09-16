@@ -16,7 +16,7 @@
 9. Click `Create Subnet`
     ![](../../images/Migration/SetupNetworking/9.png)
 10. Fill the Name Tag as `Public1`
-11. Choose the previous VPC that has been created (DatabaseVPC)
+11. Choose the previous VPC that has been created (`DatabaseVPC`)
 12. Choose Availability Zone as `ap-southeast-1a`
 13. Fill 1Pv4 CIDR block as `10.0.0.0/24`
     ![](../../images/Migration/SetupNetworking/13.png)
@@ -24,7 +24,7 @@
 15. Click `Close`
 16. Click `Create Subnet`
 17. Fill the Name Tag as `Public2`
-18. Choose the previous VPC that has been created (DatabaseVPC)
+18. Choose the previous VPC that has been created (`DatabaseVPC`)
 19. Choose Availability Zone as `ap-southeast-1b`
 20. Fill 1Pv4 CIDR block as `10.0.1.0/24`
     ![](../../images/Migration/SetupNetworking/20.png)
@@ -40,7 +40,7 @@
 28. Check the checkbox of your internet gatway you have created
 29. Click `Actions` and click `Attach to VPC`
     ![](../../images/Migration/SetupNetworking/29.png)
-30. Choose the VPC you have previously made (DatabaseVPC)
+30. Choose the VPC you have previously made (`DatabaseVPC`)
 31. Click `Attach internet gateway`
 32. Click `Your VPCs` at the left menu
 33. Check the checkbox of your VPC you have created
@@ -50,14 +50,14 @@
 36. Click `Save Changes`
 37. Click `Route Tables` on the left menu
     ![](../../images/Migration/SetupNetworking/37.png)
-38. Choose the Route Table that contains your VPC (DatabaseVPC)
+38. Choose the Route Table that contains your VPC (`DatabaseVPC`)
     ![](../../images/Migration/SetupNetworking/38.png)
 39. In menu below, click `Routes` and click `Edit routes`
     ![](../../images/Migration/SetupNetworking/39.png)
 40. Click `Add route`
 41. Fill the destination of `0.0.0.0/0`
 42. on Target, choose `Internet Gateway`
-43. Pick your Internet Gateway (DatabaseVPCIGW)
+43. Pick your Internet Gateway (`DatabaseVPCIGW`)
     ![](../../images/Migration/SetupNetworking/43.png)
 44. Click `Save routes`
 45. Click `Close`
