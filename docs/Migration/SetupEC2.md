@@ -133,27 +133,32 @@ it will display the configuration of the MySQL.
 
 68. Type `i`
 68. Find `bind-address` and change it from `127.0.0.1` to `0.0.0.0`
-69. Type escape (esc) at your keyboard
-70. Type `:wq`
+
+Another thing, we need to turn on the log bin and server id. This will become handy in migration step later.
+69. find `#server-id = 1` and remove the `#`
+70. find `#log_bin = ...` and remove the `#`
+    ![](../../images/Migration/SetupEC2/70.png)
+71. Type escape (esc) at your keyboard
+72. Type `:wq`
 
 it will save and quit the text editor. We need to run the MySQL again.
 
-71. Type `sudo service mysql start`
+73. Type `sudo service mysql start`
 
 We need to try the connection.
 
-72. Type `exit`
+74. Type `exit`
 
 it will come back to your terminal and the connection of your instance is being closed.
 
 We need to try to access the MySQL remotely.
 
-73. go to your [EC2 console here](https://ap-southeast-1.console.aws.amazon.com/ec2/v2/home?region=ap-southeast-1#Instances:)
-74. find your instance (EC2MySQL) and copy the Public IPv4 DNS
-    ![](../../images/Migration/SetupEC2/74.png)
-75. in your regular terminal, type 'mysql -h `your public IPv4 DNS` -P 3306 -u testuser -p'
-76. Type your password
+75. go to your [EC2 console here](https://ap-southeast-1.console.aws.amazon.com/ec2/v2/home?region=ap-southeast-1#Instances:)
+76. find your instance (EC2MySQL) and copy the Public IPv4 DNS
     ![](../../images/Migration/SetupEC2/76.png)
+77. in your regular terminal, type 'mysql -h `your public IPv4 DNS` -P 3306 -u testuser -p'
+78. Type your password
+    ![](../../images/Migration/SetupEC2/78.png)
 
 it will be connected to your MySQL at the server.
 

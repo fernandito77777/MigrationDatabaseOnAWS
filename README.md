@@ -22,3 +22,4 @@
 * Database will be using MySQL Community version (8.0.20)
 * Migration will be done from EC2 MySQL to RDS MySQL
 * All Service will be on region ap-southeast-1 (Singapore)
+* The instruction is for Mac User. Please use PuTTy to connect to terminal if you are using Windows.
