@@ -2,9 +2,9 @@
 
 ### Architecture Diagram
 #### Migration
-    ![](/images/Readme/MigrationArchitecture.png)
+    ![](../images/Readme/MigrationArchitecture.png)
 #### Data Warehouse
-    ![](/images/Readme/DWHArchitecture.png)
+    ![](../images/Readme/DWHArchitecture.png)
 
 ### Agenda
 * Migrate MySQL Database on EC2 Database to AWS RDS (Relational Database Service)
@@ -19,7 +19,7 @@
     * 4 - [Visual Data from Data Warehouse using BI Tools (QuickSight)](docs/Visualization/Visualize.md)
 
 ### Scope of Project
-* Database will be using MySQL Community version (8.0.20)
 * Migration will be done from EC2 MySQL to RDS MySQL
-* All Service will be on region ap-southeast-1 (Singapore)
-* The instruction is for Mac User. Please use PuTTy to connect to terminal if you are using Windows.
+* For Migration, All Services will be on region ap-southeast-1 (Singapore)
+* For Visualization and Analytics, All services will be on region us-east-1 (North Virginia)
+* The instruction is for Mac User. Please use PuTTY to connect to terminal if you are using Windows.
