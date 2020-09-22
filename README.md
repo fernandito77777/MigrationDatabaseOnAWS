@@ -12,11 +12,13 @@
     * 2 - [Setup Your Database Server](docs/Migration/SetupEC2.md)
     * 3 - [Create RDS Database](docs/Migration/CreateRDS.md)
     * 4 - [Migrate the Database](docs/Migration/MigrateDB.md)
-* Visualize RDS data through QuickSight
-    * 1 - [Create and Integrate RDS to Data Lake (S3)](docs/Visualization/IntegrateRDStoDataLake.md)
-    * 2 - [Create Data Warehouse (Redshift)](docs/Visualization/DWH.md)
-    * 3 - [ETL (Extract, Transform, Load) from Data Lake to Data Warehouse](docs/Visualization/ETL.md)
-    * 4 - [Visual Data from Data Warehouse using BI Tools (QuickSight)](docs/Visualization/Visualize.md)
+* Offload RDS Database to Data Lake and Data Warehouse
+    * 1 - [Create and Integrate RDS to Data Lake (S3)](docs/DLAndDWH/IntegrateRDStoDataLake.md)
+    * 2 - [Catalog the data in data lake](docs/DLAndDWH/CatalogData.md)
+    * 3 - [Create Data Warehouse (Redshift)](docs/DLAndDWH/DWH.md)
+    * 4 - [ETL (Extract, Transform, Load) from Data Lake to Data Warehouse](docs/DLAndDWH/ETL.md)
+* Visualize data from Data Warehouse using BI tools
+    * 1 - [Visual Data from Data Warehouse using BI Tools (QuickSight)](docs/Visualization/Visualize.md)
 
 ### Scope of Project
 * Migration will be done from EC2 MySQL to RDS MySQL
