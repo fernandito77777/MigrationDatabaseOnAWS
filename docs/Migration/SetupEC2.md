@@ -137,6 +137,7 @@ it will display the configuration of the MySQL.
 68. Find `bind-address` and change it from `127.0.0.1` to `0.0.0.0`
 
 Another thing, we need to turn on the log bin and server id. This will become handy in migration step later.
+
 69. find `#server-id = 1` and remove the `#`
 70. find `#log_bin = ...` and remove the `#`
     ![](../../images/Migration/SetupEC2/70.png)
@@ -163,6 +164,7 @@ We need to try to access the MySQL remotely.
     ![](../../images/Migration/SetupEC2/78.png)
 
 it will be connected to your MySQL at the server.
+
 79. Type `exit`.
 
 [BACK TO WORKSHOP GUIDE](../../README.md)
