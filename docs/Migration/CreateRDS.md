@@ -45,34 +45,39 @@ Once it's done, we need to create Database instance on RDS.
 it will display the options for databases you can use.
     ![](../../images/Migration/CreateRDS/25.png)
 
-26. Click `Standard Create` for database creation method
-27. Click `MySQL`
-    ![](../../images/Migration/CreateRDS/27.png)
-28. in Templates, click `Free tier`
-29. in settings, change the DB instance identifier with `RDSMySQL`
-30. leave the master username as admin
+26. Choose `MySQL` database on Engine options.
+    ![](../../images/Migration/CreateRDS/26.png)
+27. Click `Next`
+28. in use case, choose `Dev/Test - MySQL`
+29. Click `Next`
+    ![](../../images/Migration/CreateRDS/29.png)
+30. Checklist the checkbox of `Free tier`
     ![](../../images/Migration/CreateRDS/30.png)
-31. fill the master password. make sure to remember your password.
-32. fill confirm password.
-33. In Storage, change the maximum storage threshold to `100` GiB
-    ![](../../images/Migration/CreateRDS/33.png)
-34. in Connectivity, choose your VPC (`DatabaseVPC`)
-35. Click `Additional Connectivity configuration`
-36. Ensure that the subnet group is `RDSMySQLSubnetGroup`
-37. Click Radio Button `Yes` on Public access
-38. Remove `default` on Existing VPC Security Group and Add `RDSMySQLSG`
-    ![](../../images/Migration/CreateRDS/38.png)
-39. Scroll down and click `Create database`
+31. Change the maximum storage threshold to `100` GiB in Storage autoscaling
+    ![](../../images/Migration/CreateRDS/31.png)
+32. In settings, typeRDSMySQL the DB instance identifier with `RDSMySQL`
+33. type the master username as `admin`
+34. input your password and confirm password
+35. Type `Next`
+    ![](../../images/Migration/CreateRDS/35.png)
+36. In network and security, choose your VPC (`DatabaseVPC`)
+37. Choose your subnet group (`rdsmysqlsubnetgroup`)
+38. Click `Yes` for the public accessibility radio button
+39. in VPC security groups, click `choose existing VPC security groups`
+40. remove the default security group and choose `RDSMySQLSG`
+    ![](../../images/Migration/CreateRDS/40.png)
+41. Scroll down and click `Create database` at the below page.
+42. Click `View DB instance details`
 
 Wait until the status of the database says `Available`. It will take couple of minutes.
 
 We need to test the database.
 
-40. Click `rdsmysql`. It will display the endpoint, networking, and security of the database.
-    ![](../../images/Migration/CreateRDS/40.png)
-41. Open your terminal
-42. Type 'mysql -h `your RDS Endpoint` -u admin -p'
-43. Type your password
+43. Click `rdsmysql`. It will display the endpoint, networking, and security of the database.
     ![](../../images/Migration/CreateRDS/43.png)
+44. Open your terminal
+45. Type 'mysql -h `your RDS Endpoint` -u admin -p'
+46. Type your password
+    ![](../../images/Migration/CreateRDS/46.png)
 
 [BACK TO WORKSHOP GUIDE](../../README.md)
