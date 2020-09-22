@@ -7,7 +7,7 @@
     ![](../../images/Migration/SetupEC2/3.png)
 4. Click `Launch instances`
     ![](../../images/Migration/SetupEC2/4.png)
-5. Find `Ubuntu Server 16.04 LTS (HVM)` and click `Select`
+5. Find `Ubuntu Server 20.04 LTS (HVM)` and click `Select`
     ![](../../images/Migration/SetupEC2/5.png)
 6. Click `Next: Configure Instance Details`
 7. In Instance Details page, in Network, choose your previously created VPC (`DatabaseVPC`)
@@ -69,19 +69,23 @@ Now, we need to install MySQL at the server
 
 43. Type `sudo apt-get update`. it will update the apt package.
 44. Type `sudo apt-get install mysql-server`
-45. Type `Y`
-46. Input the password for your root user.
-47. Confirm your password.
+
+Now, you need to configure the root account password
+
+45. Type `sudo mysql_secure_installation`
+46. Type `y`
+47. There will be a password validation policy, type `0` for the low password policy
+48. Type your password and re-enter your password
+49. Keep typing `y` for every single question asked, until the process is done.
 
 Once it's done, now you will be able to use MySQL
 
-48. Type `mysql -u root -p`
-49. Input your password you have previously inputted.
+50. Type `sudo mysql`
 
 it will show mysql interface.
     ![](../../images/Migration/SetupEC2/49.png)
 
-50. Type `exit`
+51. Type `exit`
 
 you will be back at your instance. Now, we need to download the sample of the data.
 
