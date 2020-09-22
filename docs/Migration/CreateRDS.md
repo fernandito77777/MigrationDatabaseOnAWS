@@ -67,6 +67,7 @@ it will display the options for databases you can use.
 Wait until the status of the database says `Available`. It will take couple of minutes.
 
 We need to test the database.
+
 40. Click `rdsmysql`. It will display the endpoint, networking, and security of the database.
     ![](../../images/Migration/CreateRDS/40.png)
 41. Open your terminal
