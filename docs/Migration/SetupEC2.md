@@ -83,59 +83,57 @@ Once it's done, now you will be able to use MySQL
 50. Type `sudo mysql`
 
 it will show mysql interface.
-    ![](../../images/Migration/SetupEC2/49.png)
+    ![](../../images/Migration/SetupEC2/50.png)
 
 51. Type `exit`
 
 you will be back at your instance. Now, we need to download the sample of the data.
 
-51. Type `wget https://sp.mysqltutorial.org/wp-content/uploads/2018/03/mysqlsampledatabase.zip`
-52. Type `ls` it will display the sample data in your server.
+52. Type `wget https://sp.mysqltutorial.org/wp-content/uploads/2018/03/mysqlsampledatabase.zip`
+53. Type `ls` it will display the sample data in your server.
 
 We need to install the unzip package to unzip the file we have downloaded.
-    ![](../../images/Migration/SetupEC2/52.png)
+    ![](../../images/Migration/SetupEC2/53.png)
 
-53. Type `sudo apt install unzip`
-54. Type `Y`
+54. Type `sudo apt install unzip`
+55. Type `Y`
 
 The zip package will be installed at your server. Once it's done, we need to decompress the zip file
 
-55. Type `unzip mysqlsampledatabase.zip`
-56. Type `ls`
+56. Type `unzip mysqlsampledatabase.zip`
+57. Type `ls`
 
 It will display 2 files, the sql file and zip file. We need to execute the SQL file.
-    ![](../../images/Migration/SetupEC2/56.png)
+    ![](../../images/Migration/SetupEC2/57.png)
 
-57. Type `mysql -u root -p < mysqlsampledatabase.sql`
-58. Type your root password
+58. Type `sudo mysql < mysqlsampledatabase.sql`
 
 It will execute the creation of database and data. Now, we need to check if the query has been executed.
 
-59. Type `mysql -u root -p`
-60. Type your root password.
-61. In SQL Interface, type `SHOW DATABASES;`
+59. Type `sudo mysql`
+60. In SQL Interface, type `SHOW DATABASES;`
 
 You will see `classicmodels` database, which is the dummy database we got from executing the previous query.
-    ![](../../images/Migration/SetupEC2/61.png)
+    ![](../../images/Migration/SetupEC2/60.png)
 
 We need to create an user to remotely access the database. This user will be used to migrate the database.
 
-62. Type `CREATE USER 'testuser'@'%' identified by 'your password here';`
-63. Type `GRANT ALL ON classicmodels.* to 'testuser';`
+61. Type `CREATE USER 'testuser'@'%' identified by 'your password here';`
+62. Type `GRANT ALL ON classicmodels.* to 'testuser';`
 
 Once you have done, we need to open the MySQL to be accessible outside. First, we need to stop the SQL first, configure it, then turn it on again.
 
-64. Type `exit`
-65. Type `sudo service mysql stop`
-66. Type `cd /etc/mysql/mysql.conf.d`
+63. Type `exit`
+64. Type `sudo service mysql stop`
+65. Type `cd /etc/mysql/mysql.conf.d`
 
 We need to edit the bind address to allow other processes access to the MySQL
 
-67. Type `sudo vim mysqld.cnf`
+66. Type `sudo vim mysqld.cnf`
 
 it will display the configuration of the MySQL.
 
-68. Type `i`
+67. Type `i`
 68. Find `bind-address` and change it from `127.0.0.1` to `0.0.0.0`
 
 Another thing, we need to turn on the log bin and server id. This will become handy in migration step later.
@@ -165,5 +163,6 @@ We need to try to access the MySQL remotely.
     ![](../../images/Migration/SetupEC2/78.png)
 
 it will be connected to your MySQL at the server.
+79. Type `exit`.
 
 [BACK TO WORKSHOP GUIDE](../../README.md)
