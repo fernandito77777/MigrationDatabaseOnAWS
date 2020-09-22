@@ -1,6 +1,6 @@
 ## Setup Your Database Server
 
-1. Go to [AWS Console](https://ap-southeast-1.console.aws.amazon.com/console/home?region=ap-southeast-1)
+1. Go to [AWS Console](https://console.aws.amazon.com/console/home?region=us-east-1#)
 2. Type `EC2` and click the EC2 menu
     ![](../../images/Migration/SetupEC2/2.png)
 3. Click `Instances` at the left menu
@@ -153,7 +153,7 @@ it will come back to your terminal and the connection of your instance is being 
 
 We need to try to access the MySQL remotely.
 
-75. go to your [EC2 console here](https://ap-southeast-1.console.aws.amazon.com/ec2/v2/home?region=ap-southeast-1#Instances:)
+75. go to your [EC2 console here](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#)
 76. find your instance (EC2MySQL) and copy the Public IPv4 DNS
     ![](../../images/Migration/SetupEC2/76.png)
 77. in your regular terminal, type 'mysql -h `your public IPv4 DNS` -P 3306 -u testuser -p'

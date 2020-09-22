@@ -1,6 +1,6 @@
 ## Migrate the Database
 
-1. Go to [AWS Console](https://ap-southeast-1.console.aws.amazon.com/console/home?region=ap-southeast-1)
+1. Go to [AWS Console](https://console.aws.amazon.com/console/home?region=us-east-1#)
 2. Type `DMS` and click the Database Migration Service menu
     ![](../../images/Migration/MigrateDB/2.png)
 3. Click Replication instances at the left menu
@@ -25,7 +25,7 @@ It might take few minutes to be ready. wait until the status is "Available"
 
 We need to get the Public IPv4 DNS of the EC2, which is your database server. Don't close DMS window, we will get back there later.
 
-14. Go to [EC2 Console](https://ap-southeast-1.console.aws.amazon.com/ec2/v2/home?region=ap-southeast-1#Home:) at the other window/tab
+14. Go to [EC2 Console](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#) at the other window/tab
 15. Click "Instances" at the left menu
 16. Click the checkbox of your EC2 instance ("EC2MySQL")
 17. Now, copy the Public IPv4 DNS at the details of your instance.

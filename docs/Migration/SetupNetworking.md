@@ -1,6 +1,6 @@
 ## Setup Networking on AWS
 
-1. Go to [AWS Console](https://ap-southeast-1.console.aws.amazon.com/console/home?region=us-east-1#)
+1. Go to [AWS Console](https://console.aws.amazon.com/console/home?region=us-east-1#)
 2. Type `VPC` on the textbox and click the VPC menu
     ![](../../images/Migration/SetupNetworking/2.png)
 3. Click `Your VPCs` at the left side of the menu

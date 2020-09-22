@@ -1,6 +1,6 @@
 ## Create RDS Database
 
-1. Go to [AWS Console](https://ap-southeast-1.console.aws.amazon.com/console/home?region=ap-southeast-1)
+1. Go to [AWS Console](https://console.aws.amazon.com/console/home?region=us-east-1#)
 2. Type `RDS` and click the RDS menu
     ![](../../images/Migration/CreateRDS/2.png)
 3. Click `Subnet Group`
@@ -18,7 +18,7 @@
 
 It will create the subnet group for your database.
 
-12. go to [EC2 Console](https://ap-southeast-1.console.aws.amazon.com/ec2/v2/home?region=ap-southeast-1#Home:)
+12. go to [EC2 Console](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#)
 13. Click `Security Group` at the left menu
 14. Click `Create Security group`
     ![](../../images/Migration/CreateRDS/14.png)
@@ -38,7 +38,7 @@ It will look like as below:
 
 Once it's done, we need to create Database instance on RDS.
 
-23. Go to [RDS Console](https://ap-southeast-1.console.aws.amazon.com/rds/home?region=ap-southeast-1)
+23. Go to [RDS Console](https://console.aws.amazon.com/rds/home?region=us-east-1#)
 24. Click `Databases` at the left menu
 25. Click `Create Database`
 
