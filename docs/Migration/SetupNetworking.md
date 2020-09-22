@@ -17,7 +17,7 @@
     ![](../../images/Migration/SetupNetworking/9.png)
 10. Fill the Name Tag as `Public1`
 11. Choose the previous VPC that has been created (`DatabaseVPC`)
-12. Choose Availability Zone as `ap-southeast-1a`
+12. Choose Availability Zone as `us-east-1a`
 13. Fill 1Pv4 CIDR block as `10.0.0.0/24`
     ![](../../images/Migration/SetupNetworking/13.png)
 14. Click `Create`
@@ -25,7 +25,7 @@
 16. Click `Create Subnet`
 17. Fill the Name Tag as `Public2`
 18. Choose the previous VPC that has been created (`DatabaseVPC`)
-19. Choose Availability Zone as `ap-southeast-1b`
+19. Choose Availability Zone as `us-east-1b`
 20. Fill 1Pv4 CIDR block as `10.0.1.0/24`
     ![](../../images/Migration/SetupNetworking/20.png)
 21. Click `Create`
