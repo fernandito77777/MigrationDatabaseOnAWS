@@ -14,7 +14,7 @@
     * 4 - [Migrate the Database](docs/Migration/MigrateDB.md)
 * Offload RDS Database to Data Lake and Data Warehouse
     * 1 - [Create and Integrate RDS to Data Lake (S3)](docs/DLAndDWH/IntegrateRDStoDataLake.md)
-    * 2 - [Catalog the data in data lake](docs/DLAndDWH/CatalogData.md)
+    * 2 - [Catalog the data in data lake](docs/DLAndDWH/DataCatalog.md)
     * 3 - [Create Data Warehouse (Redshift)](docs/DLAndDWH/DWH.md)
     * 4 - [ETL (Extract, Transform, Load) from Data Lake to Data Warehouse](docs/DLAndDWH/ETL.md)
 * Visualize data from Data Warehouse using BI tools
