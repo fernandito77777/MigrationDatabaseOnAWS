@@ -24,3 +24,5 @@
 * Migration will be done from EC2 MySQL to RDS MySQL
 * All services will be on region us-east-1 (North Virginia)
 * The instruction is for Mac User. Please use PuTTY to connect to terminal if you are using Windows.
+* This is the Entity Relation Diagram (ERD) of the database we will use for this migration
+    ![](images/Readme/ERD.png)

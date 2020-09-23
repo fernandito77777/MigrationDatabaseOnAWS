@@ -95,4 +95,25 @@ Once you create the connection, it will show the query editor. we need to take a
 It will display the data at the lower page.
     ![](../../images/DLAndDWH/ETL/44-2.png)
 
+We need to test the data.
+
+45. Please copy this query below to test it out
+```
+    SELECT 
+        prod.productName,
+        SUM(odrdtl.quantityOrdered) AS SumQtyOrder,
+        COUNT(cust.customerName) AS TotalCustomer
+    FROM classicmodels.customers cust
+    JOIN classicmodels.orders odr ON cust.customerNumber = odr.customerNumber
+    JOIN classicmodels.orderdetails odrdtl ON odr.orderNumber = odrdtl.orderNumber
+    JOIN classicmodels.products prod ON odrdtl.productCode = prod.productCode
+    WHERE DATEDIFF(day, (SELECT MAX(orderDate) FROM classicmodels.orders), odr.orderDate) <= 90
+    GROUP BY 
+        prod.productName
+    ORDER BY SumQtyOrder DESC;
+```
+
+it will display the trends of which product has the most orders from the past 3 months.
+    ![](../../images/DLAndDWH/ETL/45.png)
+
 [BACK TO WORKSHOP GUIDE](../../README.md)
