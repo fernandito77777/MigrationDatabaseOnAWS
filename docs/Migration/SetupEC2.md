@@ -181,10 +181,11 @@ We need to try to access the MySQL remotely.
     ![](../../images/Migration/SetupEC2/90.png)
 91. in your regular terminal, type 'mysql -h `your public IPv4 DNS` -P 3306 -u testuser -p'
 92. Type your password
-    ![](../../images/Migration/SetupEC2/92.png)
 
-it will be connected to your MySQL at the server.
+it will be connected to your MySQL at the server. Now, let's see the database.
 
-93. Type `exit`.
+93. In MySQL interface, type `SHOW DATABASES;`
+    ![](../../images/Migration/SetupEC2/93.png)
+94. Type `exit`.
 
 [BACK TO WORKSHOP GUIDE](../../README.md)
