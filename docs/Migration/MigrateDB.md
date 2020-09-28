@@ -143,6 +143,6 @@ Now, let's check if the data has been inserted at your RDS database.
 ```
 
 it will display the result from the EC2 terminal.
-
+    ![](../../images/Migration/MigrateDB/69.png)
     
 [BACK TO WORKSHOP GUIDE](../../README.md)
