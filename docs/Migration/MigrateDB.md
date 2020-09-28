@@ -59,6 +59,7 @@ We have created the endpoint from the database server. now, we need to create an
     ![](../../images/Migration/MigrateDB/31.png)
 32. Replace the endpoint identifier as `RDSEndpoint`
 33. Fill the password of your RDS Database. You have inputted it during RDS Database creation.
+    ![](../../images/Migration/MigrateDB/33.png)
 34. Go to Test endpoint connection, and select your VPC (`DatabaseVPC`)
 35. Click `Run test`
 
