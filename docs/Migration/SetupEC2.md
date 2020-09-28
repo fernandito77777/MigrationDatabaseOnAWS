@@ -127,7 +127,7 @@ We need to create an user to remotely access the database. This user will be use
 
 68. Type `CREATE USER 'testuser'@'%' identified by 'your password here';`
 69. Type `GRANT ALL ON classicmodels.* to 'testuser';`
-70. Type `GRANT REPLICATION CLIENT ON *.* TO 'testuser'@'%';`
+70. Type `GRANT REPLICATION SLAVE,REPLICATION CLIENT ON *.* TO 'testuser'@'%';`
 
 Once you have done, we need to open the MySQL to be accessible outside. First, we need to stop the SQL first, configure it, then turn it on again.
 
