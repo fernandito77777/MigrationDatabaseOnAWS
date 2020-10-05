@@ -102,7 +102,7 @@ We are going to connect our Database service (RDS) by using our EC2 instance.
 58. Go to [RDS Console](https://console.aws.amazon.com/rds/home?region=us-east-1#)
 59. click `Databases` at the left menu
 60. Click `rdsmysql`. It will display the endpoint, networking, and security of the database at the bottom page.
-    ![](../../images/Migration/CreateRDS/43.png)
+    ![](../../images/Migration/CreateRDS/60.png)
 61. Open your EC2 terminal you have connected previously
 62. Type 'mysql -h `your RDS Endpoint` -u admin -p'
 63. Type your password
