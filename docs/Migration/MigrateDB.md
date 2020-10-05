@@ -103,32 +103,40 @@ Once it's complete, the status will change into `Load complete, replication ongo
 
 We need to check the database if it's now available on RDS.
 
-53. go to [RDS Console](https://console.aws.amazon.com/rds/home?region=us-east-1)
-54. click `Databases` on the left menu
-55. click your database name (`RDSMySQL`)
+53. go to your [EC2 console here](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#)
+54. click instances at the left menu
+55. click the checkbox at the left side of your instance ("EC2MySQL")
+56. click "Connect"
+57. copy the ssh code and paste it to your terminal and click enter
+
+it will connect to your EC2 instance. Now we need the RDS endpoint to connect to RDS instance.
+
+58. go to [RDS Console](https://console.aws.amazon.com/rds/home?region=us-east-1)
+59. click `Databases` on the left menu
+60. click your database name (`RDSMySQL`)
     ![](../../images/Migration/MigrateDB/55.png)
-56. copy the endpoint of your database.
-57. Open your terminal
-58. Type 'mysql -h `your RDS Endpoint` -P 3306 -u admin -p'
-59. Type your RDS Password
-60. at MySQL interface, type `SHOW DATABASES;`
+61. copy the endpoint of your database.
+62. Open your EC2 terminal 
+63. Type 'mysql -h `your RDS Endpoint` -P 3306 -u admin -p'
+64. Type your RDS Password
+65. at MySQL interface, type `SHOW DATABASES;`
 
 it will display classicmodels database from EC2 (your database server)
     ![](../../images/Migration/MigrateDB/60.png)
 
 Now, we need to confirm if the data is keep being migrated continuously.
 
-61. Open new terminal and leave your RDS terminal. Don't close it.
-62. go to your [EC2 console here](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#)
-63. click `Instances` at the left menu
-64. find your instance (EC2MySQL) and copy the Public IPv4 DNS
+66. Open new terminal and leave your RDS terminal. Don't close it.
+67. go to your [EC2 console here](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#)
+68. click `Instances` at the left menu
+69. find your instance (EC2MySQL) and copy the Public IPv4 DNS
     ![](../../images/Migration/MigrateDB/64.png)
-65. in your new terminal, type 'mysql -h `your public IPv4 DNS` -P 3306 -u testuser -p'
+70. in your new terminal, type 'mysql -h `your public IPv4 DNS` -P 3306 -u testuser -p'
 
 We are going to insert the data from EC2 instance and check if the data is going to be replicated.
 
-66. in EC2 (new) terminal, Type `USE classicmodels`
-67. in EC2 (new) terminal, Type this query
+71. in EC2 (new) terminal, Type `USE classicmodels;`
+72. in EC2 (new) terminal, Type this query
 ```
     INSERT INTO `customers`(`customerNumber`,`customerName`,`contactLastName`,`contactFirstName`,`phone`,`addressLine1`,`addressLine2`,`city`,`state`,`postalCode`,`country`,`salesRepEmployeeNumber`,`creditLimit`) values 
 (500,'Estone Pedro','Scheiderman','Ben ','40.33.2589','52, rue Royale',NULL,'Nantes',NULL,'44100','France',1370,'22000.00');
@@ -136,8 +144,8 @@ We are going to insert the data from EC2 instance and check if the data is going
 
 Now, let's check if the data has been inserted at your RDS database.
 
-68. in RDS terminal, Type `USE classicmodels`
-69. in RDS terminal, Type this query
+73. in RDS terminal, Type `USE classicmodels;`
+74. in RDS terminal, Type this query
 ```
     SELECT * FROM customers WHERE customerNumber = 500;
 ```
