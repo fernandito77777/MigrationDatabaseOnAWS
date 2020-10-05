@@ -51,7 +51,7 @@ it will display the export page
 
 28. In export identifier, type `rdsexporttos3`
     ![](../../images/DLAndDWH/IntegrateRDStoDataLake/28.png)
-29. In S3 destination, choose your bucket (`yourname-demo-datalake-bucket)
+29. In S3 destination, choose your bucket (`yourname-demo-datalake-bucket`)
 30. In S3 Prefix, type `RDSSnapshot/`
     ![](../../images/DLAndDWH/IntegrateRDStoDataLake/30.png)
 31. in IAM role, choose `Create a new role`
@@ -86,11 +86,11 @@ Once we have give the permission to access our data lake, we need to go back to 
 Like the previous step number 28 until 34, we need to do it again. but, we need to change a little bit about the authorization part.
 
 45. In export identifier, type `rdsexporttos3`
-46. In S3 destination, choose your bucket (`yourname-demo-datalake-bucket)
+46. In S3 destination, choose your bucket (`yourname-demo-datalake-bucket`)
 47. In S3 Prefix, type `RDSSnapshot/`
 48. in IAM role, search `RDSExportToS3Role` and click the role.
     ![](../../images/DLAndDWH/IntegrateRDStoDataLake/48.png)
-49. in Encryption, choose the key you have created (`RDSSnapshotKey)
+49. in Encryption, choose the key you have created (`RDSSnapshotKey`)
 50. Click `Export to Amazon S3`
 
 it will start to export the snapshot from your RDS Database to Data lake (S3)

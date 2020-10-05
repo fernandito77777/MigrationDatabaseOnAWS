@@ -104,8 +104,8 @@ Once it's complete, the status will change into `Load complete, replication ongo
 We need to check the database if it's now available on RDS.
 
 53. go to [RDS Console](https://console.aws.amazon.com/rds/home?region=us-east-1)
-54. click "Databases" on the left menu
-55. click your database name ("RDSMySQL")
+54. click `Databases` on the left menu
+55. click your database name (`RDSMySQL`)
     ![](../../images/Migration/MigrateDB/55.png)
 56. copy the endpoint of your database.
 57. Open your terminal
@@ -120,7 +120,7 @@ Now, we need to confirm if the data is keep being migrated continuously.
 
 61. Open new terminal and leave your RDS terminal. Don't close it.
 62. go to your [EC2 console here](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#)
-63. click "Instances" at the left menu
+63. click `Instances` at the left menu
 64. find your instance (EC2MySQL) and copy the Public IPv4 DNS
     ![](../../images/Migration/MigrateDB/64.png)
 65. in your new terminal, type 'mysql -h `your public IPv4 DNS` -P 3306 -u testuser -p'
