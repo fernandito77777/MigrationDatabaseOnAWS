@@ -69,7 +69,7 @@ Now, we can run the crawler we have created previously.
 
 it will take a few minutes to run the crawler. it will create a data catalog from your data lake to be accessed anywhere else.
 
-once the crawler is done, it will display the `Ready` status and create 844 tables.
+once the crawler is done, it will display the `Ready` status and create 8 tables.
     ![](../../images/DLAndDWH/DataCatalog/41-2.png)
 
 We need to check the data.

@@ -57,7 +57,7 @@ it will display the export page
 31. in IAM role, choose `Create a new role`
 32. fill the IAM role name as `RDSExportToS3Role`
     ![](../../images/DLAndDWH/IntegrateRDStoDataLake/32.png)
-33. in Encryption, choose the key you have created (`RDSSnapshotKey)
+33. in Encryption, choose the key you have created (`RDSSnapshotKey`)
 34. Click `Export to Amazon S3`
     ![](../../images/DLAndDWH/IntegrateRDStoDataLake/34.png)
 
