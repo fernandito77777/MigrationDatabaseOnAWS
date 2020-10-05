@@ -76,6 +76,7 @@ Now, we need to install MySQL at the server
 
 47. Type `sudo apt-get update`. it will update the apt package.
 48. type `apt-cache madison mysql-server` to find MySQL version available.
+    ![](../../images/Migration/SetupEC2/48.png)
 
 it will display different types of version. We need to choose the 5.7.31 version.
 
