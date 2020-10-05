@@ -79,28 +79,28 @@ Wait until the status of the database says `Available`. It will take couple of m
 You will connect to your EC2 instance. now, we need to connect to our RDS instance using this EC2 instance. We are going to use the previous instance you have created on EC2
 
 45. go to [EC2 Console](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#)
-46. click "Security groups" at the left menu.
-47. search your Security groups "EC2MySQLSG"
-48. Click "Inbound rules"
-49. click "Edit inbound rules"
+46. click `Security groups` at the left menu.
+47. search your Security groups `EC2MySQLSG`
+48. Click `Inbound rules`
+49. click `Edit inbound rules`
     ![](../../images/Migration/CreateRDS/49.png)
-50. click "Add Rule"
-51. in type, select "MySQL/Aurora"
-52. in source, type "RDSMySQLSG" and click the security group.
-53. click "Save rules"
+50. click `Add Rule`
+51. in type, select `MySQL/Aurora`
+52. in source, type `RDSMySQLSG` and click the security group.
+53. click `Save rules`
     ![](../../images/Migration/CreateRDS/53.png)
 
 Now, we can connect to our EC2 instance
 
-54. click "Instances" at the left menu
-55. click the checkbox at the left side of your instance ("EC2MySQL")
-56. click "connect"
-57. open new terminal and copy the SSH syntax at the connect pop-up menu ("ssh -i 'EC2MySQLKey.pem' ...")
+54. click `Instances` at the left menu
+55. click the checkbox at the left side of your instance (`EC2MySQL`)
+56. click `connect`
+57. open new terminal and copy the SSH syntax at the connect pop-up menu (`ssh -i 'EC2MySQLKey.pem' ...`)
 
 We are going to connect our Database service (RDS) by using our EC2 instance.
 
 58. Go to [RDS Console](https://console.aws.amazon.com/rds/home?region=us-east-1#)
-59. click "Databases" at the left menu
+59. click `Databases` at the left menu
 60. Click `rdsmysql`. It will display the endpoint, networking, and security of the database at the bottom page.
     ![](../../images/Migration/CreateRDS/43.png)
 61. Open your EC2 terminal you have connected previously
