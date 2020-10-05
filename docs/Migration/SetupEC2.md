@@ -7,7 +7,7 @@
     ![](../../images/Migration/SetupEC2/3.png)
 4. Click `Launch instances`
     ![](../../images/Migration/SetupEC2/4.png)
-5. Find `Ubuntu Server 16.04 LTS (HVM)` and click `Select`
+5. Find `Ubuntu Server 18.04 LTS (HVM)` and click `Select`
     ![](../../images/Migration/SetupEC2/5.png)
 6. Click `Next: Configure Instance Details`
 7. In Instance Details page, in Network, choose your previously created VPC (`DatabaseVPC`)
@@ -75,117 +75,125 @@ Once you are connected, the display at your terminal will be displayed as below:
 Now, we need to install MySQL at the server
 
 47. Type `sudo apt-get update`. it will update the apt package.
-48. Type `sudo apt-get install mysql-server`
-49. input your root password. Remember it!
-50. confirm your password.
+48. type `apt-cache madison mysql-server` to find MySQL version available.
+
+it will display different types of version. We need to choose the 5.7.31 version.
+
+48. Type `sudo apt-get install mysql-server=5.7.31-0ubuntu0.18.04.1`
+49. Type `Y` for confirm the installation.
+
+Now, we need to setup the root password.
+
+50. type `sudo mysql_secure_installation`
+51. type `y` for validate password plugin
+52. type `0` for password validation policy
+53. input your root password. Remember it!
+54. confirm your password.
+55. type `y` for every questions asked.
 
 Once it's done, now you will be able to use MySQL
 
-51. Type `mysql -u root -p`
-52. Type your password
-
+56. Type `sudo mysql`
 it will show mysql interface.
-    ![](../../images/Migration/SetupEC2/52.png)
+    ![](../../images/Migration/SetupEC2/56.png)
 
-53. Type `exit`
+57. Type `exit`
 
 you will be back at your instance. Now, we need to download the sample of the data.
 
-54. Download [this file](../../files/Migration/SetupEC2/mysqlsampledatabase.sql) For database sample creation
-55. open the new terminal window. don't close your ubuntu server window
+58. Download [this file](../../files/Migration/SetupEC2/mysqlsampledatabase.sql) For database sample creation
+59. open the new terminal window. don't close your ubuntu server window
 
 we need to copy from your local into ubuntu server.
 
-56. go to your directory file and make sure your sql file and key file in a same folder.
-57. go to [EC2 Console](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Home:)
-58. click `instances` at the left menu
-59. click the checbox at the left side of your instance (`EC2MySQL`)
-60. copy the IPv4 public DNS at the below page.
-    ![](../../images/Migration/SetupEC2/60.png)
-61. in the new terminal, type `scp -i EC2MySQLKey.pem mysqlsampledatabase.sql ubuntu@Your-Public-DNS:~/`
+60. go to your directory file and make sure your sql file and key file in a same folder.
+61. go to [EC2 Console](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Home:)
+62. click `instances` at the left menu
+63. click the checbox at the left side of your instance (`EC2MySQL`)
+64. copy the IPv4 public DNS at the below page.
+    ![](../../images/Migration/SetupEC2/64.png)
+65. in the new terminal, type `scp -i EC2MySQLKey.pem mysqlsampledatabase.sql ubuntu@Your-Public-DNS:~/`
 
 Now go to your ubuntu terminal
 
-62. type `ls`
+66. type `ls`
 
 you will see the file is being copied successfully at your server.
-    ![](../../images/Migration/SetupEC2/62.png)
+    ![](../../images/Migration/SetupEC2/66.png)
 
-63. Type `mysql -u root -p < mysqlsampledatabase.sql`
-64. input your root password.
+67. Type `sudo mysql < mysqlsampledatabase.sql`
 
 It will execute the creation of database and data. Now, we need to check if the query has been executed.
 
-65. Type `mysql -u root -p`
-66. input your root password.
-67. In SQL Interface, type `SHOW DATABASES;`
+68. Type `sudo mysql`
+69. In SQL Interface, type `SHOW DATABASES;`
 
 You will see `classicmodels` database, which is the dummy database we got from executing the previous query.
-    ![](../../images/Migration/SetupEC2/67.png)
+    ![](../../images/Migration/SetupEC2/69.png)
 
 We need to create an user to remotely access the database. This user will be used to migrate the database. Don't forget to change the password in below command "Identified by". Remember the password.
 
-68. Type `CREATE USER 'testuser'@'%' identified by 'your password here';`
-69. Type `GRANT ALL ON classicmodels.* to 'testuser';`
-70. Type `GRANT REPLICATION SLAVE,REPLICATION CLIENT ON *.* TO 'testuser'@'%';`
+70. Type `CREATE USER 'testuser'@'%' identified by 'your password here';`
+71. Type `GRANT ALL ON classicmodels.* to 'testuser';`
+72. Type `GRANT REPLICATION SLAVE,REPLICATION CLIENT ON *.* TO 'testuser'@'%';`
 
 Once you have done, we need to open the MySQL to be accessible outside. First, we need to stop the SQL first, configure it, then turn it on again.
 
-71. Type `exit`
-72. Type `sudo service mysql stop`
-73. Type `cd /etc/mysql/mysql.conf.d`
+73. Type `exit`
+74. Type `sudo service mysql stop`
+75. Type `cd /etc/mysql/mysql.conf.d`
 
 We need to edit the bind address to allow other processes access to the MySQL
 
-74. Type `sudo vim mysqld.cnf`
+76. Type `sudo vim mysqld.cnf`
 
 it will display the configuration file of your MySQL.
 
-75. Type `i` at your keyboard.
-76. Find `bind-address` and change it from `127.0.0.1` to `0.0.0.0`
+77. Type `i` at your keyboard.
+78. Find `bind-address` and change it from `127.0.0.1` to `0.0.0.0`
 
 Another thing, we need to turn on the binary log and server id. This binary log will be used to migrate the data we have.
 
-77. find `#server-id = 1` and remove the `#`
-78. find `#log_bin = ...` and remove the `#`
-79. find `# binlog_do_db = ...` and remove the `#`
-80. replace the db name into `classicmodels`
-    ![](../../images/Migration/SetupEC2/80.png)
-81. Type escape (esc) at your keyboard
-82. Type `:wq!`
+79. find `#server-id = 1` and remove the `#`
+80. find `#log_bin = ...` and remove the `#`
+81. find `# binlog_do_db = ...` and remove the `#`
+82. replace the db name into `classicmodels`
+    ![](../../images/Migration/SetupEC2/82.png)
+83. Type escape (esc) at your keyboard
+84. Type `:wq!`
 
 it will save and quit the text editor. We need to run the MySQL again.
 
-83. Type `sudo service mysql start`
+85. Type `sudo service mysql start`
 
 Now, we need to check if the binary logs has been enabled though testuser account.
 
-84. Type `mysql -u testuser -p`
-85. Input your testuser password in step 68.
-86. In MySQL Interface, type `SHOW BINARY LOGS;`
+86. Type `mysql -u testuser -p`
+87. Input your testuser password in step 68.
+88. In MySQL Interface, type `SHOW BINARY LOGS;`
 
 It will display the binary logs table at the query result.
-    ![](../../images/Migration/SetupEC2/86.png)
+    ![](../../images/Migration/SetupEC2/88.png)
 
 Now, We need to try the connection.
 
-87. Type `exit`
-88. Type `exit` again.
+89. Type `exit`
+90. Type `exit` again.
 
 it will come back to your terminal and the connection of your instance is being closed.
 
 We need to try to access the MySQL remotely.
 
-89. go to your [EC2 console here](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#)
-90. find your instance (EC2MySQL) and copy the Public IPv4 DNS
-    ![](../../images/Migration/SetupEC2/90.png)
-91. in your regular terminal, type 'mysql -h `your public IPv4 DNS` -P 3306 -u testuser -p'
-92. Type your password
+91. go to your [EC2 console here](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#)
+92. find your instance (EC2MySQL) and copy the Public IPv4 DNS
+   ![](../../images/Migration/SetupEC2/92.png)
+93. in your regular terminal, type 'mysql -h `your public IPv4 DNS` -P 3306 -u testuser -p'
+94. Type your password
 
 it will be connected to your MySQL at the server. Now, let's see the database.
 
-93. In MySQL interface, type `SHOW DATABASES;`
-    ![](../../images/Migration/SetupEC2/93.png)
-94. Type `exit`.
+95. In MySQL interface, type `SHOW DATABASES;`
+    ![](../../images/Migration/SetupEC2/95.png)
+96. Type `exit`.
 
 [BACK TO WORKSHOP GUIDE](../../README.md)
