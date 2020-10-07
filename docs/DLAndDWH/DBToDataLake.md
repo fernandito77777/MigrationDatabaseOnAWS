@@ -142,6 +142,7 @@ After granting the database, we can create the blueprint to generate data catalo
     ![](../../images/DLAndDWH/DBToDataLake/60.png)
 61. in source data path, type "classicmodels/%" to declare the whole entire tables in database "classicmodels"
 62. in incremental data, declare each tables in the specification as below table. Click Add to add another table. You need to click it 7 times to add another 7 tables.
+
     | Table name | Bookmark Keys | Bookmark order |
     | --- | --- |
     | customers | customerNumber | Ascending |
@@ -152,6 +153,7 @@ After granting the database, we can create the blueprint to generate data catalo
     | payments | customerNumber | Ascending |
     | productlines | productLine | Ascending |
     | products | productCode | Ascending |
+    
     ![](../../images/DLAndDWH/DBToDataLake/62.png)
 63. in import target, choose "classicmodels" as the target database
 64. in target storage location, click browse and choose your data lake
