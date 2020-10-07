@@ -56,13 +56,13 @@ It will take several minutes to create the cluster. During this time, we will cr
 34. click `Create endpoint` at the page below.
 35. click `Close`
 
-it will create the endpoint. We need to give the endpoint a name
+it will create the endpoint. We need to give the endpoint a name.
 
 36. at endpoint page, hover your cursor to the name field, and click the pencil button.
 37. Type `RedshiftS3EP`
     ![](../../images/DLAndDWH/DWH/37.png)
 
-Now, we need to find the prefix list that we have included at the route table.
+Now, we need to check if the prefix list that we have included at the route table exist. you might need to wait around 1 or 2 minutes to find it.
 
 38. click `Route tables` at the left menu of VPC
 39. find the route table you have checked previously during endpoint creation. click the box besides the route table id
@@ -70,10 +70,19 @@ Now, we need to find the prefix list that we have included at the route table.
 41. in destination, you will see the prefix list at the route (starts with pl-). copy the prefix list, we will need it at the next step
     ![](../../images/DLAndDWH/DWH/41.png)
 
-We need to verify if the security group have received the rules from the endpoint.
+We are going to check if your data warehouse cluster is ready.
 
 42. go to [Redshift Console](https://console.aws.amazon.com/redshiftv2/home?region=us-east-1#landing)
 43. click `Clusters` at the left menu
+
+If the status is still in creating, then you need to wait a couple minutes.
+    ![](../../images/DLAndDWH/DWH/43.png)
+
+Once it's ready, it will change the status to `Available`
+    ![](../../images/DLAndDWH/DWH/43-2.png)
+
+Now, we are going to check the security group of the data warehouse.
+
 44. click your data warehouse (`redshift-dwh`)
 45. click `properties` tab
     ![](../../images/DLAndDWH/DWH/45.png)
@@ -132,7 +141,7 @@ After creating the connection, we need to create a permission before testing the
     ![](../../images/DLAndDWH/DWH/75.png)
 76. in search textbox, type `AWSGlueServiceRole` and click the checkbox at the left side of the policy
     ![](../../images/DLAndDWH/DWH/76.png)
-77. in search textbox, type `AWSGlueServiceRole` and click the checkbox at the left side of the policy
+77. in search textbox, type `AmazonS3FullAccess` and click the checkbox at the left side of the policy
 78. click `Next: tags`
     ![](../../images/DLAndDWH/DWH/78.png)
 79. click `Next: review`
@@ -168,12 +177,18 @@ Now, we need to create the schema at our data warehouse.
 
 Now, we need to create the schema and all tables.
 
-94. Please download [this query](../../files/DLAndDWH/DWH/Redshift-DDL.sql) and execute it for each of them consecutively. don't change the order of the table execution.
+94. in query, type 
+```
+    CREATE schema classicmodels;
+```
+95. once the query is completed, change the schema to `classicmodels`
+    ![](../../images/DLAndDWH/DWH/95.png)
+96. Please download [this query](../../files/DLAndDWH/DWH/Redshift-DDL.sql) and execute it for each of them consecutively. don't change the order of the table execution.
 Example: 
-    ![](../../images/DLAndDWH/DWH/94.png)
-    ![](../../images/DLAndDWH/DWH/94-2.png)
+    ![](../../images/DLAndDWH/DWH/96.png)
+    ![](../../images/DLAndDWH/DWH/96-2.png)
 
 once you are done, it will create every table.
-    ![](../../images/DLAndDWH/DWH/94-3.png)
+    ![](../../images/DLAndDWH/DWH/96-3.png)
 
 [BACK TO WORKSHOP GUIDE](../../README.md)

@@ -1,6 +1,4 @@
---	Create redshift_lab schema.
-CREATE schema classicmodels;
-
+-- 1. create offices table, copy this query and paste it
 CREATE TABLE IF not EXISTS classicmodels.offices (
   officeCode        varchar(10) NOT NULL,
   city              varchar(50) NOT NULL,
@@ -13,7 +11,12 @@ CREATE TABLE IF not EXISTS classicmodels.offices (
   territory         varchar(10) NOT NULL,
   PRIMARY KEY(officeCode)
 );
+-- execute the query
 
+
+
+-- erase the previous query
+-- 2. create employees table, copy this query and paste it
 CREATE TABLE IF not EXISTS classicmodels.employees (
   employeeNumber  int NOT NULL,
   lastName        varchar(50) NOT NULL,
@@ -27,7 +30,12 @@ CREATE TABLE IF not EXISTS classicmodels.employees (
   FOREIGN KEY(reportsTo) REFERENCES classicmodels.employees(employeeNumber),
   FOREIGN KEY(officeCode) REFERENCES classicmodels.offices(officeCode)
 );
+-- execute the query
 
+
+
+-- erase the previous query
+-- 3. create customers table, copy this query and paste it
 CREATE TABLE IF not EXISTS classicmodels.customers (
   customerNumber            int NOT NULL,
   customerName              varchar(50) NOT NULL,
@@ -45,7 +53,12 @@ CREATE TABLE IF not EXISTS classicmodels.customers (
   PRIMARY KEY(customerNumber),
   FOREIGN KEY(salesRepEmployeeNumber) REFERENCES classicmodels.employees(employeeNumber)
 );
+-- execute the query
 
+
+
+-- erase the previous query
+-- 4. create orders table, copy this query and paste it
 CREATE TABLE IF not EXISTS classicmodels.orders (
   orderNumber       int NOT NULL,
   orderDate         date NOT NULL,
@@ -57,7 +70,12 @@ CREATE TABLE IF not EXISTS classicmodels.orders (
   PRIMARY KEY(orderNumber),
   FOREIGN KEY(customerNumber) REFERENCES classicmodels.customers(customerNumber)
 );
+-- execute the query
 
+
+
+-- erase the previous query
+-- 5. create productlines table, copy this query and paste it
 CREATE TABLE IF not EXISTS classicmodels.productlines (
   productLine       varchar(50) NOT NULL,
   textDescription   varchar(4000) DEFAULT NULL,
@@ -65,7 +83,12 @@ CREATE TABLE IF not EXISTS classicmodels.productlines (
   image             varchar(max) DEFAULT NULL,
   PRIMARY KEY(productLine)
 );
+-- execute the query
 
+
+
+-- erase the previous query
+-- 6. create products table, copy this query and paste it
 CREATE TABLE IF not EXISTS classicmodels.products (
   productCode           varchar(15) NOT NULL,
   productName           varchar(70) NOT NULL,
@@ -79,7 +102,12 @@ CREATE TABLE IF not EXISTS classicmodels.products (
   PRIMARY KEY(productCode),
   FOREIGN KEY(productLine) REFERENCES classicmodels.productlines(productLine)
 );
+-- execute the query
 
+
+
+-- erase the previous query
+-- 7. create orderdetails table, copy this query and paste it
 CREATE TABLE IF not EXISTS classicmodels.orderdetails (
   orderNumber       int NOT NULL,
   productCode       varchar(15) NOT NULL,
@@ -90,7 +118,12 @@ CREATE TABLE IF not EXISTS classicmodels.orderdetails (
   FOREIGN KEY(orderNumber) REFERENCES classicmodels.orders(orderNumber),
   FOREIGN KEY(productCode) REFERENCES classicmodels.products(productCode)
 );
+-- execute the query
 
+
+
+-- erase the previous query
+-- 8. create payments table, copy this query and paste it
 CREATE TABLE IF not EXISTS classicmodels.payments (
   customerNumber    int NOT NULL,
   checkNumber       varchar(50) NOT NULL,
@@ -99,17 +132,4 @@ CREATE TABLE IF not EXISTS classicmodels.payments (
   PRIMARY KEY(customerNumber,checkNumber),
   FOREIGN KEY(customerNumber) REFERENCES classicmodels.customers(customerNumber)
 );
-
-CREATE TABLE IF not EXISTS classicmodels.products (
-  productCode           varchar(15) NOT NULL,
-  productName           varchar(70) NOT NULL,
-  productLine           varchar(50) NOT NULL,
-  productScale          varchar(10) NOT NULL,
-  productVendor         varchar(50) NOT NULL,
-  productDescription    varchar(max) NOT NULL,
-  quantityInStock       int NOT NULL,
-  buyPrice              decimal(10,2) NOT NULL,
-  MSRP                  decimal(10,2) NOT NULL,
-  PRIMARY KEY(productCode),
-  FOREIGN KEY(productLine) REFERENCES classicmodels.productlines(productLine)
-);
+-- execute the query
