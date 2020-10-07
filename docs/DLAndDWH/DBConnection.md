@@ -81,7 +81,7 @@ Now, we need to open new tab/window to get our RDS endpoint. Please don't close 
 
 Go back to your glue console page.
 
-37. in glue console page, type `jdbc:mysql://'your RDS endpoint here':3306/classicmodels`
+37. in glue console page, type `jdbc:mysql://your-RDS-endpoint-here:3306/classicmodels`
 38. in username, type `admin`
 39. fill your password
 40. in VPC, choose your VPC (`DatabaseVPC`)
