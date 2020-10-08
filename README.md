@@ -18,7 +18,8 @@
     * 3 - [Create Data Warehouse (Redshift)](docs/DLAndDWH/DWH.md)
     * 4 - [ETL (Extract, Transform, Load) from Data Lake to Data Warehouse](docs/DLAndDWH/ETL.md)
 * Visualize data from Data Warehouse using BI tools
-    * 1 - [Visual Data from Data Warehouse using BI Tools (QuickSight)](docs/Visualization/Visualize.md)
+    * 1 - [Create View table for data visualization](docs/Visualization/ViewTable.md)
+    * 2 - [Visual Data from Data Warehouse using BI Tools (QuickSight)](docs/Visualization/Visualize.md)
 
 ### Scope of Project
 * Migration will be done from EC2 MySQL to RDS MySQL

@@ -9,6 +9,7 @@ CREATE TABLE IF not EXISTS classicmodels.offices (
   country           varchar(50) NOT NULL,
   postalCode        varchar(15) NOT NULL,
   territory         varchar(10) NOT NULL,
+  TIMESTAMP         TIMESTAMP,
   PRIMARY KEY(officeCode)
 );
 -- execute the query
@@ -26,6 +27,7 @@ CREATE TABLE IF not EXISTS classicmodels.employees (
   officeCode      varchar(10) NOT NULL,
   reportsTo       int DEFAULT NULL,
   jobTitle        varchar(50) NOT NULL,
+  TIMESTAMP       TIMESTAMP,
   PRIMARY KEY(employeeNumber),
   FOREIGN KEY(reportsTo) REFERENCES classicmodels.employees(employeeNumber),
   FOREIGN KEY(officeCode) REFERENCES classicmodels.offices(officeCode)
@@ -50,6 +52,7 @@ CREATE TABLE IF not EXISTS classicmodels.customers (
   country                   varchar(50) NOT NULL,
   salesRepEmployeeNumber    int DEFAULT NULL,
   creditLimit               decimal(10,2),
+  TIMESTAMP                 TIMESTAMP,
   PRIMARY KEY(customerNumber),
   FOREIGN KEY(salesRepEmployeeNumber) REFERENCES classicmodels.employees(employeeNumber)
 );
@@ -67,6 +70,7 @@ CREATE TABLE IF not EXISTS classicmodels.orders (
   status            varchar(15) NOT NULL,
   comments          text DEFAULT NULL,
   customerNumber    int NOT NULL,
+  TIMESTAMP         TIMESTAMP,
   PRIMARY KEY(orderNumber),
   FOREIGN KEY(customerNumber) REFERENCES classicmodels.customers(customerNumber)
 );
@@ -81,6 +85,7 @@ CREATE TABLE IF not EXISTS classicmodels.productlines (
   textDescription   varchar(4000) DEFAULT NULL,
   htmlDescription   varchar(max) DEFAULT NULL,
   image             varchar(max) DEFAULT NULL,
+  TIMESTAMP         TIMESTAMP,
   PRIMARY KEY(productLine)
 );
 -- execute the query
@@ -99,6 +104,7 @@ CREATE TABLE IF not EXISTS classicmodels.products (
   quantityInStock       int NOT NULL,
   buyPrice              decimal(10,2) NOT NULL,
   MSRP                  decimal(10,2) NOT NULL,
+  TIMESTAMP             TIMESTAMP,
   PRIMARY KEY(productCode),
   FOREIGN KEY(productLine) REFERENCES classicmodels.productlines(productLine)
 );
@@ -114,6 +120,7 @@ CREATE TABLE IF not EXISTS classicmodels.orderdetails (
   quantityOrdered   int NOT NULL,
   priceEach         decimal(10,2) NOT NULL,
   orderLineNumber   int NOT NULL,
+  TIMESTAMP         TIMESTAMP,
   PRIMARY KEY(orderNumber,productCode),
   FOREIGN KEY(orderNumber) REFERENCES classicmodels.orders(orderNumber),
   FOREIGN KEY(productCode) REFERENCES classicmodels.products(productCode)
@@ -129,6 +136,7 @@ CREATE TABLE IF not EXISTS classicmodels.payments (
   checkNumber       varchar(50) NOT NULL,
   paymentDate       date NOT NULL,
   amount            decimal(10,2) NOT NULL,
+  TIMESTAMP         TIMESTAMP,
   PRIMARY KEY(customerNumber,checkNumber),
   FOREIGN KEY(customerNumber) REFERENCES classicmodels.customers(customerNumber)
 );

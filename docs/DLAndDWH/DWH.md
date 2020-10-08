@@ -183,7 +183,7 @@ Now, we need to create the schema and all tables.
 ```
 95. once the query is completed, change the schema to `classicmodels`
     ![](../../images/DLAndDWH/DWH/95.png)
-96. Please download [this query](../../files/DLAndDWH/DWH/Redshift-DDL.sql) and execute it for each of them consecutively. don't change the order of the table execution.
+96. Please download [this query](../../files/DLAndDWH/DWH/RedshiftDDL.sql) and execute it for each of them consecutively. don't change the order of the table execution.
 Example: 
     ![](../../images/DLAndDWH/DWH/96.png)
     ![](../../images/DLAndDWH/DWH/96-2.png)
