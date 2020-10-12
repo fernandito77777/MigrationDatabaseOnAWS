@@ -30,3 +30,5 @@ let's test one of the view.
 
 it will display the query result as below
     ![](../../images/Visualization/ViewTable/11.png)
+
+[BACK TO WORKSHOP GUIDE](../../README.md)
