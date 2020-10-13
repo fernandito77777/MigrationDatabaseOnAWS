@@ -25,10 +25,10 @@ it will show MySQL interface
     ![](../../images/TestDataPipeline/InsertEC2DB/10.png)
 11. copy this query below
 ```
-    INSERT INTO `customers`(`customerNumber`,`customerName`,`contactLastName`,`contactFirstName`,`phone`,`addressLine1`,`addressLine2`,`city`,`state`,`postalCode`,`country`,`salesRepEmployeeNumber`,`creditLimit`) values 
-    (501,'Ashley','Scheiderman','Ben','40.31.2600','52, rue Royale',NULL,'Nantes',NULL,'44100','USA','1370','15000.00'),
-    (502,'Raymond','Scheiderman','Ben','40.31.3000','52, rue Royale',NULL,'Nantes',NULL,'44100','USA',1370,'30000.00'),
-    (503,'UK Souveniers, Ltd.','Daniel','White','(171) 555-2039','1, Berkeley Gardens Blvd',NULL,'Liverpool',NULL,'WX1 6LT','UK',1501,'93900.00');
+INSERT INTO `customers`(`customerNumber`,`customerName`,`contactLastName`,`contactFirstName`,`phone`,`addressLine1`,`addressLine2`,`city`,`state`,`postalCode`,`country`,`salesRepEmployeeNumber`,`creditLimit`) values 
+(501,'Ashley','Scheiderman','Ben','40.31.2600','52, rue Royale',NULL,'Nantes',NULL,'44100','USA','1370','15000.00'),
+(502,'Raymond','Scheiderman','Ben','40.31.3000','52, rue Royale',NULL,'Nantes',NULL,'44100','USA',1370,'30000.00'),
+(503,'UK Souveniers, Ltd.','Daniel','White','(171) 555-2039','1, Berkeley Gardens Blvd',NULL,'Liverpool',NULL,'WX1 6LT','UK',1501,'93900.00');
 ```
 12. paste it to your MySQL interface and enter
     ![](../../images/TestDataPipeline/InsertEC2DB/12.png)
