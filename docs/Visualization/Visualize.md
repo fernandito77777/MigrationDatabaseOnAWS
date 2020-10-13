@@ -84,7 +84,7 @@ Now, your data warehouse can access the quicksight.
     ![](../../images/Visualization/Visualize/41.png)
 42. in data sets options, choose `Redshift Auto-discovered`
     ![](../../images/Visualization/Visualize/42.png)
-43. in data source name, type `classicmodels_customers`
+43. in data source name, type `classicmodels_customers_vw`
 44. in instance ID, choose `redshift-dwh`
 45. in connection type, choose `Public network`
 46. in database name, type `dev`
@@ -100,7 +100,7 @@ Once it's done, it will change to `Validated`.
 
 50. click `Create data source`
 51. in schema, choose `classicmodels`
-52. in tables, choose `customers`
+52. in tables, choose `customers_vw`
 53. click `Select`
     ![](../../images/Visualization/Visualize/53.png)
 54. in data set creation, choose `Import to SPICE for quicker analytics`
@@ -142,5 +142,26 @@ Now, we are going to try to filter the visual.
 
 the visual will change.
     ![](../../images/Visualization/Visualize/65-2.png)
+
+Now, we need to schedule a refresh dataset to keep update the data.
+
+66. click quicksight logo at the top left
+    ![](../../images/Visualization/Visualize/66.png)
+
+67. click `Datasets` at the left menu
+68. click `customers_vw` datasets
+    ![](../../images/Visualization/Visualize/68.png)
+69. in data sets descriptions, click `Schedule refresh`
+    ![](../../images/Visualization/Visualize/69.png)
+70. in Schedule refresh page, click `Create`
+    ![](../../images/Visualization/Visualize/70.png)
+71. in schedule, ensure that the date is by tomorrow's date
+72. in time, change it to 3:00 AM
+73. click `Create`
+    ![](../../images/Visualization/Visualize/73.png)
+74. once it's done, click `Cancel` or click the `X` button at the top
+    ![](../../images/Visualization/Visualize/74.png)
+75. click `X` again at the data sets description page
+    ![](../../images/Visualization/Visualize/75.png)
 
 [BACK TO WORKSHOP GUIDE](../../README.md)
