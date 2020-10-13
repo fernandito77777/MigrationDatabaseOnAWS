@@ -42,38 +42,38 @@ Now, we need to setup the connection from redshift to quicksight so it will allo
     ![](../../images/Visualization/Visualize/25.png)
 26. click `Create security group` at the bottom page
 
+Then, we need to enable our data warehouse to be publicly available.
+
+27. in your data warehouse page, click `Actions` and click `Modify publicly accessible setting`
+    ![](../../images/Visualization/Visualize/27.png)
+28. in publicly accessible page, click `Yes`
+29. leave the Elastic IP address as `None`
+30. click `Confirm`
+    ![](../../images/Visualization/Visualize/30.png)
+
+It might take a few minutes to change the settings. your data warehouse will be in `Modifying` state
+    ![](../../images/Visualization/Visualize/30-2.png)
+
+once it's done, it will be in `Available` state.
+    ![](../../images/Visualization/Visualize/30-3.png)
+
 Now, we need to modify the security group of your redshift.
 
-27. go to [Redshift Console](https://console.aws.amazon.com/redshiftv2/home?region=us-east-1#dashboard)
-28. click `Clusters` at the left menu
-29. click your cluster name `redshift-dwh`
-    ![](../../images/Visualization/Visualize/29.png)
-30. click `Properties` tab
-    ![](../../images/Visualization/Visualize/30.png)
-31. in Network and security, click `edit`
-    ![](../../images/Visualization/Visualize/31.png)
-32. append the `Network and security` section
-33. in VPC security groups, type `Amazon-QuickSight-SG` and click it
+31. go to [Redshift Console](https://console.aws.amazon.com/redshiftv2/home?region=us-east-1#dashboard)
+32. click `Clusters` at the left menu
+33. click your cluster name `redshift-dwh`
     ![](../../images/Visualization/Visualize/33.png)
+34. click `Properties` tab
+    ![](../../images/Visualization/Visualize/34.png)
+35. in Network and security, click `edit`
+    ![](../../images/Visualization/Visualize/35.png)
+36. append the `Network and security` section
+37. in VPC security groups, type `Amazon-QuickSight-SG` and click it
+    ![](../../images/Visualization/Visualize/37.png)
 
 there will be 2 Security groups attach to your data warehouse, the `Amazon-QuickSight-SG` and your default security group.
 
-34. click `Modify cluster`
-
-Then, we need to enable our data warehouse to be publicly available.
-
-35. in your data warehouse page, click `Actions` and click `Modify publicly accessible setting`
-    ![](../../images/Visualization/Visualize/35.png)
-36. in publicly accessible page, click `Yes`
-37. leave the Elastic IP address as `None`
-38. click `Confirm`
-    ![](../../images/Visualization/Visualize/38.png)
-
-It might take a few minutes to change the settings. your data warehouse will be in `Modifying` state
-    ![](../../images/Visualization/Visualize/38-2.png)
-
-once it's done, it will be in `Available` state.
-    ![](../../images/Visualization/Visualize/38-3.png)
+38. click `Modify cluster`
 
 Now, your data warehouse can access the quicksight.
 

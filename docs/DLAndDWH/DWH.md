@@ -179,7 +179,7 @@ Now, we need to create the schema and all tables.
 
 94. in query, type 
 ```
-    CREATE schema classicmodels;
+CREATE schema classicmodels;
 ```
 95. once the query is completed, change the schema to `classicmodels`
     ![](../../images/DLAndDWH/DWH/95.png)

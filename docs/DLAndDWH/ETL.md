@@ -84,18 +84,18 @@ usually, if you have logged in in not a long time, it will re-login automaticall
     ![](../../images/DLAndDWH/ETL/41.png)
 42. Please copy this query below to test it out
 ```
-    SELECT 
-        prod.productName,
-        SUM(odrdtl.quantityOrdered) AS SumQtyOrder,
-        COUNT(cust.customerName) AS TotalCustomer
-    FROM classicmodels.customers cust
-    JOIN classicmodels.orders odr ON cust.customerNumber = odr.customerNumber
-    JOIN classicmodels.orderdetails odrdtl ON odr.orderNumber = odrdtl.orderNumber
-    JOIN classicmodels.products prod ON odrdtl.productCode = prod.productCode
-    WHERE DATEDIFF(day, (SELECT MAX(orderDate) FROM classicmodels.orders), odr.orderDate) <= 90
-    GROUP BY 
-        prod.productName
-    ORDER BY SumQtyOrder DESC;
+SELECT 
+    prod.productName,
+    SUM(odrdtl.quantityOrdered) AS SumQtyOrder,
+    COUNT(cust.customerName) AS TotalCustomer
+FROM classicmodels.customers cust
+JOIN classicmodels.orders odr ON cust.customerNumber = odr.customerNumber
+JOIN classicmodels.orderdetails odrdtl ON odr.orderNumber = odrdtl.orderNumber
+JOIN classicmodels.products prod ON odrdtl.productCode = prod.productCode
+WHERE DATEDIFF(day, (SELECT MAX(orderDate) FROM classicmodels.orders), odr.orderDate) <= 90
+GROUP BY 
+    prod.productName
+ORDER BY SumQtyOrder DESC;
 ```
 
 it will display the trends of which product has the most orders from the past 3 months.
