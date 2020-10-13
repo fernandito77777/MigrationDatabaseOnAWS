@@ -32,7 +32,7 @@ the data will then be refreshed automatically.
 12. click `customers_vw analysis`
     ![](../../images/TestDataPipeline/CheckDataViz/12.png)
 
-The data will then change based on the actual data
+The data will then change based on the actual data.
     ![](../../images/TestDataPipeline/CheckDataViz/12-2.png)
 
 [BACK TO WORKSHOP GUIDE](../../README.md)
